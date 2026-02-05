@@ -10,7 +10,7 @@ export default function Home() {
   const [showWeChat, setShowWeChat] = useState(false);
   const t = content[lang];
 
-  // --- 背景：跟随鼠标的感知呼吸光影 ---
+  // 呼吸感光影逻辑
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   useEffect(() => {
@@ -27,7 +27,6 @@ export default function Home() {
     ([x, y]) => `radial-gradient(650px circle at ${x}px ${y}px, rgba(168, 85, 247, 0.12), transparent 80%)`
   );
 
-  // --- 邮件一键复制逻辑 ---
   const copyEmail = () => {
     navigator.clipboard.writeText("yz15u22@soton.ac.uk");
     setCopied(true);
@@ -40,13 +39,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-purple-500/30 overflow-x-hidden relative">
-      
-      {/* 动态感应背景层 */}
       <motion.div className="pointer-events-none fixed inset-0 z-0" style={{ background }} />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
-
-      {/* 导航栏 */}
-      <nav className="fixed top-6 right-6 z-50 flex gap-3">
+      
+      <nav className="fixed top-6 right-6 z-50 flex gap-2">
         <button 
           onClick={() => setLang(lang === 'en' ? 'cn' : 'en')}
           className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 hover:border-purple-500/50 transition-all shadow-xl"
@@ -57,66 +52,47 @@ export default function Home() {
       </nav>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
-        {/* Header Section */}
         <section className="mb-24 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }} 
+            initial={{ opacity: 0, scale: 0.9 }} 
             animate={{ opacity: 1, scale: 1 }}
             className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0"
           >
             <div className="absolute -inset-4 bg-purple-500/20 rounded-full blur-2xl animate-pulse"></div>
             <div className="relative w-full h-full rounded-full border-2 border-purple-500/30 overflow-hidden shadow-2xl">
-              <img 
-                src="/avatar.jpg" 
-                alt="Zheng Yue" 
-                className="w-full h-full object-cover" 
-              />
+              <img src="/avatar.jpg" alt="Zheng Yue" className="w-full h-full object-cover" />
             </div>
           </motion.div>
 
           <div>
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-purple-500/20"
-            >
+            <div className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-purple-500/20">
               <Sparkles size={14} /> {t.title}
-            </motion.div>
-            
-            {/* 名字：直接显示，去掉打字机动画 */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-6xl md:text-8xl font-black mb-6 tracking-tighter text-white"
-            >
-              {t.name}
-            </motion.h1>
-
-            <p className="text-xl text-gray-400 max-w-2xl leading-relaxed">
-              {t.about} <span className="text-white font-medium">{t.research}</span>
-            </p>
+            </div>
+            <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tighter text-white">{t.name}</h1>
+            <p className="text-xl text-gray-400 max-w-2xl leading-relaxed">{t.about} <span className="text-white font-medium">{t.research}</span></p>
           </div>
         </section>
 
-        {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          
-          {/* Publication Card */}
-          <motion.a 
-            href={t.pubLink}
-            target="_blank"
-            whileHover={{ y: -8, scale: 1.01 }}
-            className="md:col-span-8 bg-white/[0.03] border border-white/10 p-8 md:p-10 rounded-[2.5rem] relative overflow-hidden group cursor-pointer transition-all duration-300"
-          >
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-40 transition-opacity">
-              <ExternalLink size={80} />
-            </div>
-            <h2 className="text-sm uppercase tracking-widest text-purple-400 font-bold mb-6 flex items-center gap-2">
-              {t.publications} <ExternalLink size={14} />
-            </h2>
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight group-hover:text-purple-300 transition-colors">{t.pubTitle}</h3>
-            <p className="text-gray-500 font-mono italic">{t.pubDetail}</p>
-          </motion.a>
+          {/* 循环渲染所有论文卡片 */}
+          <div className="md:col-span-8 grid grid-cols-1 gap-6">
+            {t.pubList.map((pub, i) => (
+              <motion.a 
+                key={i}
+                href={pub.link}
+                target="_blank"
+                whileHover={{ y: -5, x: 5 }}
+                className="bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] relative overflow-hidden group cursor-pointer"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <h2 className="text-sm uppercase tracking-widest text-purple-400 font-bold">{t.publications}</h2>
+                  <ExternalLink size={16} className="text-gray-600 group-hover:text-purple-400 transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-300 transition-colors">{pub.title}</h3>
+                <p className="text-gray-500 font-mono italic text-sm">{pub.detail}</p>
+              </motion.a>
+            ))}
+          </div>
 
           {/* Education Card */}
           <div className="md:col-span-4 bg-purple-600 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between text-white">
@@ -131,16 +107,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 微信弹窗 ✨ 卡片 */}
+          {/* 微信卡片 */}
           <motion.div 
             onClick={() => setShowWeChat(!showWeChat)}
             whileHover={{ scale: 1.05 }}
-            className="md:col-span-4 bg-gradient-to-br from-zinc-800 to-black border border-white/10 p-8 rounded-[2.5rem] flex flex-col items-center justify-center cursor-pointer relative overflow-hidden"
+            className="md:col-span-4 bg-gradient-to-br from-zinc-800 to-black border border-white/10 p-8 rounded-[2.5rem] flex flex-col items-center justify-center cursor-pointer relative"
           >
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="text-5xl mb-4">✨</motion.div>
-            <p className="text-sm font-bold text-gray-400 tracking-widest">{lang === 'en' ? 'CONNECT' : '联系我'}</p>
+            <p className="text-sm font-bold text-gray-400">{lang === 'en' ? 'CONNECT' : '联系我'}</p>
             {showWeChat && (
-              <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="absolute inset-0 bg-purple-600 flex flex-col items-center justify-center p-4">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 bg-purple-600 flex flex-col items-center justify-center p-4 rounded-[2.5rem]">
                 <MessageCircle size={40} className="mb-2" />
                 <p className="text-sm font-bold">WeChat ID: zyesj_</p>
                 <p className="text-[10px] mt-4 opacity-70">点击返回</p>
@@ -148,24 +124,21 @@ export default function Home() {
             )}
           </motion.div>
 
-          {/* 邮箱交互卡片 */}
+          {/* 邮箱卡片 */}
           <div className="md:col-span-8 bg-white/5 border border-white/10 p-8 rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col gap-3">
-               <div className="flex items-center gap-3 text-gray-400">
-                <MapPin size={18} className="text-purple-400" />
+              <div className="flex items-center gap-3 text-gray-300">
+                <MapPin size={20} className="text-purple-400" />
                 <span className="text-sm">{t.location}</span>
               </div>
-              <a href="mailto:yz15u22@soton.ac.uk" className="flex items-center gap-3 text-white hover:text-purple-400 transition-colors text-xl font-bold">
-                <Mail size={22} className="text-purple-400" />
-                <span className="border-b-2 border-purple-500/30 pb-1">yz15u22@soton.ac.uk</span>
+              <a href="mailto:yz15u22@soton.ac.uk" className="flex items-center gap-3 text-white hover:text-purple-400 transition-colors">
+                <Mail size={20} className="text-purple-400" />
+                <span className="text-sm border-b border-white/20 pb-1 italic font-bold">yz15u22@soton.ac.uk</span>
               </a>
             </div>
-            <button 
-              onClick={copyEmail}
-              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-2xl transition-all"
-            >
+            <button onClick={copyEmail} className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl transition-all flex items-center gap-2">
               {copied ? <Check size={18} className="text-green-400" /> : <Copy size={18} />}
-              <span className="text-xs font-bold uppercase tracking-widest">{copied ? 'COPIED' : 'COPY'}</span>
+              <span className="text-xs font-bold uppercase">{copied ? 'COPIED' : 'Copy Email'}</span>
             </button>
           </div>
         </div>
