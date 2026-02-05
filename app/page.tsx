@@ -169,7 +169,7 @@ export default function Home() {
             {showWeChat && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 bg-purple-600 flex flex-col items-center justify-center p-4 rounded-[2.5rem] z-20">
                 <MessageCircle size={40} className="mb-2" />
-                <p className="text-sm font-bold">WeChat ID: zyesj_</p>
+                <p className="text-sm font-bold">WeChat ID: Annie524</p>
                 <p className="text-[10px] mt-6 opacity-60">Click to Close</p>
               </motion.div>
             )}
