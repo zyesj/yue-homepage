@@ -65,7 +65,7 @@
 // }
 
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Languages, Mail, MapPin, Sparkles, ExternalLink } from 'lucide-react';
 import { content } from '../data'; // 注意这里改成了 ../data
@@ -74,6 +74,15 @@ export default function Home() {
   const [lang, setLang] = useState<'en' | 'cn'>('en');
   const t = content[lang];
 
+  // --- 在这里插入郑悦博士的专属逻辑 ---
+  useEffect(() => {
+    if (lang === 'cn') {
+      document.title = "郑悦 | 多模态 AI 博士生";
+    } else {
+      document.title = "Yue Zheng | PhD in Multimodal AI";
+    }
+  }, [lang]);
+  // --------------------------------
   return (
     <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-purple-500/30 overflow-x-hidden">
       {/* 语言切换按钮 */}
