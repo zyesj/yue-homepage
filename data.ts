@@ -15,6 +15,10 @@ export const content = {
     ],
     pubTitle: "Inclusive Design Insights from a Preliminary Image-Based Conversational Search Systems Evaluation",
     pubDetail: "First Author | IR4U2@ECIR 24",
+    pubLink: "https://ceur-ws.org/Vol-3989/paper-08.pdf", 
+    projectTitle: "Shanghai Metro Intelligent Service",
+    projectDetail: "Project Leader | NLP Intent Recognition with BERT",
+    projectLink: "https://github.com/CelineHuangdz/MetroRobot",
     techSkills: ["Python", "C/C++", "BERT", "Deep Learning", "NLP", "Data Fusion"]
   },
   cn: {
@@ -33,6 +37,10 @@ export const content = {
     ],
     pubTitle: "基于图像对话搜索系统初步评估的包容性设计见解",
     pubDetail: "第一作者 | 发表至 ECIR 2024",
+    pubLink: "https://ceur-ws.org/Vol-3989/paper-08.pdf",
+    projectTitle: "上海地铁智能客运服务系统",
+    projectDetail: "项目负责人 | 基于 BERT 的 NLP 意图识别",
+    projectLink: "https://github.com/CelineHuangdz/MetroRobot",
     techSkills: ["Python", "C/C++", "BERT", "深度学习", "自然语言处理", "数据融合"]
   }
 };
