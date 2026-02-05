@@ -181,9 +181,9 @@ export default function Home() {
                 <MapPin size={20} className="text-purple-400" />
                 <span className="text-sm">{t.location}</span>
               </div>
-              <a href="mailto:yz15u22@soton.ac.uk" className="flex items-center gap-3 text-white hover:text-purple-400 transition-colors">
+              <a href="mailto:Yue.Zheng@southampton.ac.uk" className="flex items-center gap-3 text-white hover:text-purple-400 transition-colors">
                 <Mail size={20} className="text-purple-400" />
-                <span className="text-sm border-b border-white/20 pb-1 italic font-bold">yz15u22@soton.ac.uk</span>
+                <span className="text-sm border-b border-white/20 pb-1 italic font-bold">Yue.Zheng@southampton.ac.uk</span>
               </a>
             </div>
             <button onClick={copyEmail} className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl transition-all flex items-center gap-2 border border-white/5">
