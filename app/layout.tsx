@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  // 2. 基础 SEO 配置
   title: "Yue Zheng | 郑悦 | PhD in Multimodal AI",
-  description: "Personal website of Yue Zheng (郑悦), a PhD student at University of Southampton specializing in Multimodal AI and Inclusive Design.",
+  description: "Personal website of Yue Zheng (郑悦), a PhD student at University of Southampton. Researching Multimodal Information Retrieval and Inclusive Information Access.",
+  keywords: ["Yue Zheng", "郑悦", "Southampton University", "PhD Computer Science", "Multimodal AI", "Information Retrieval", "Inclusive Design", "Eye-tracking AI"],
   
   // 3. 图标配置 (通过添加 ?v=2 强制浏览器刷新缓存)
   icons: {
