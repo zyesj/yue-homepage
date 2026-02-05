@@ -144,11 +144,11 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-white mb-1">{exp.company}</h3>
                     <p className="text-purple-400 font-medium mb-4">{exp.role}</p>
                     <ul className="space-y-3">
-                      {exp.details.map((detail, index) => (
+                      {/* {exp.details.map((detail, index) => (
                         <li key={index} className="text-gray-400 text-sm flex gap-3 leading-relaxed">
                           <span className="text-purple-500 mt-1">•</span> {detail}
                         </li>
-                      ))}
+                      ))} */}
                     </ul>
                   </div>
                   <div className="text-gray-500 font-mono text-xs md:text-sm whitespace-nowrap bg-white/5 px-4 py-2 rounded-full h-fit">

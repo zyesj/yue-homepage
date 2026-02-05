@@ -30,13 +30,13 @@ export const content = {
       {
         company: "Shanghai Giant Network Technology Co. Ltd.",
         role: "Programmer Analyst (Intern)",
-        date: "Jun 2021 - Dec 2021",
-        details: [
-          "Designed game frameworks for Metaverse environments, validating complex requirements with planners.",
-          "Achieved multi-platform compatibility and UI design in collaboration with art teams.",
-          "Implemented registration, lottery, and map systems for two metaverse-themed games.",
-          "Conducted iterative optimization of core gameplay and system performance."
-        ]
+        date: "Jun 2021 - Dec 2021"
+        // details: [
+        //   "Designed game frameworks for Metaverse environments, validating complex requirements with planners.",
+        //   "Achieved multi-platform compatibility and UI design in collaboration with art teams.",
+        //   "Implemented registration, lottery, and map systems for two metaverse-themed games.",
+        //   "Conducted iterative optimization of core gameplay and system performance."
+        // ]
       }
     ],
     projectList: [
@@ -79,13 +79,13 @@ export const content = {
       {
         company: "上海巨人网络科技有限公司",
         role: "程序分析师 (实习)",
-        date: "2021.06 - 2021.12",
-        details: [
-          "针对元宇宙环境设计游戏框架，与策划深度沟通验证需求。",
-          "与美术团队协作，实现了多端兼容的数据格式与 UI 设计。",
-          "在两款元宇宙游戏中成功实现注册、抽奖及地图系统。",
-          "对核心玩法进行深度测试与迭代优化，提升系统性能。"
-        ]
+        date: "2021.06 - 2021.12"
+        // details: [
+        //   "针对元宇宙环境设计游戏框架，与策划深度沟通验证需求。",
+        //   "与美术团队协作，实现了多端兼容的数据格式与 UI 设计。",
+        //   "在两款元宇宙游戏中成功实现注册、抽奖及地图系统。",
+        //   "对核心玩法进行深度测试与迭代优化，提升系统性能。"
+        // ]
       }
     ],
     projectList: [
