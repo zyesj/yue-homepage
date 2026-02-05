@@ -1,7 +1,7 @@
 export const content = {
   en: {
     name: "YUE ZHENG",
-    title: "PhD Student @ University of Southampton",
+    title: "PhD Candidate @ University of Southampton",
     location: "Southampton, United Kingdom",
     about: "I am a third-year PhD candidate specializing in multimodal information retrieval and Inclusive Information Access.",
     research: "My research combines text, image, and sensor data to build advanced retrieval systems that adapt to the needs of neurodivergent users.",

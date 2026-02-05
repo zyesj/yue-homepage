@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"; // 新增这一行
+
 
 // 1. 保持原有的现代字体配置
 const geistSans = Geist({
@@ -15,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Yue Zheng | 郑悦 | PhD in Multimodal AI",
-  description: "Personal website of Yue Zheng (郑悦), a PhD student at University of Southampton. Researching Multimodal Information Retrieval and Inclusive Information Access.",
+  description: "Personal website of Yue Zheng (郑悦), a PhD candidate at University of Southampton. Researching Multimodal Information Retrieval and Inclusive Information Access.",
   keywords: ["Yue Zheng", "郑悦", "Southampton University", "PhD Computer Science", "Multimodal AI", "Information Retrieval", "Inclusive Design", "Eye-tracking AI"],
   
   // 3. 图标配置 (通过添加 ?v=2 强制浏览器刷新缓存)
@@ -51,8 +53,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body>
         {children}
+        <Analytics /> {/* 新增这一行 */}
       </body>
     </html>
   );
