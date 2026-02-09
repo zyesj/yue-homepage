@@ -17,13 +17,13 @@ export const content = {
     pubList: [
       {
         title: "A Survey of Inclusive Information Access",
-        detail: "First Author | Information Retrieval Research",
+        detail: "First Author |  Information Retrieval Research Journal",
         link: "https://irrj.org/article/view/21092"
       },
       {
         title: "Inclusive Design Insights from a Preliminary Image-Based Conversational Search Systems Evaluation",
         detail: "First Author | IR4U2@ECIR 24",
-        link: "https://ceur-ws.org/Vol-3660/paper3.pdf"
+        link: "https://ceur-ws.org/Vol-3989/paper-08.pdf"
       }
     ],
     experienceList: [
@@ -66,7 +66,7 @@ export const content = {
     pubList: [
       {
         title: "包容性信息获取综述",
-        detail: "第一作者 | 信息检索研究 (Information Retrieval Research)",
+        detail: "第一作者 | 信息检索研究期刊 (Information Retrieval Research Journal)",
         link: "https://irrj.org/article/view/21092"
       },
       {
