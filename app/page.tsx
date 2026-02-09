@@ -47,10 +47,39 @@ export default function Home() {
   }, [lang]);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-purple-500/30 overflow-x-hidden relative">
-      {/* 动态背景层 */}
-      <motion.div className="pointer-events-none fixed inset-0 z-0" style={{ background }} />
-      
+<main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-purple-500/30 overflow-x-hidden relative">
+  
+  {/* --- 增强版动态背景层：包含鼠标跟随光影 + 漂浮多模态数据微粒 --- */}
+  <motion.div 
+    className="pointer-events-none fixed inset-0 z-0 overflow-hidden" 
+    style={{ background }} 
+  >
+    {/* 漂浮微粒容器：模拟传感器和多模态数据点 */}
+    <div className="absolute inset-0 opacity-20">
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-purple-400 rounded-full"
+          animate={{
+            // 在屏幕范围内随机漂移
+            x: [Math.random() * 1200, Math.random() * 1200],
+            y: [Math.random() * 1000, Math.random() * 1000],
+            opacity: [0.2, 0.8, 0.2],
+          }}
+          transition={{
+            duration: Math.random() * 10 + 15, // 随机 15-25 秒完成一次漂移
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      ))}
+    </div>
+  </motion.div>
+
+  {/* 增加一层胶片颗粒感叠加，让暗色背景更高级 */}
+  <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+
+
       {/* 语言切换导航栏 */}
       <nav className="fixed top-6 right-6 z-50">
         <button 
