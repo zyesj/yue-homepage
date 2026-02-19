@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react"; // 新增这一行
+import { Analytics } from "@vercel/analytics/next";
 
 
 // 1. 保持原有的现代字体配置
@@ -55,7 +55,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Analytics /> {/* 新增这一行 */}
+        <Analytics />
       </body>
     </html>
   );
