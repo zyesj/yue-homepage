@@ -143,7 +143,7 @@ export default function Home() {
           </div>
 
           {/* 2. 教育背景卡片 */}
-          <div className="md:col-span-4 bg-purple-600/90 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between text-white border border-white/10 shadow-2xl">
+          <div className="md:col-span-4 bg-purple-600/90 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-start text-white border border-white/10 shadow-2xl">
             <h2 className="text-sm uppercase tracking-widest font-bold mb-8 opacity-80">Education</h2>
             <div className="space-y-6">
               {t.eduList.map((edu: any, i: number) => (
