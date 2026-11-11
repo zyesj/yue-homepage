@@ -206,22 +206,50 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* 5. 社交联系卡片 (WeChat) */}
-          <motion.div 
-            onClick={() => setShowWeChat(!showWeChat)}
-            whileHover={{ scale: 1.05 }}
-            className="md:col-span-4 bg-gradient-to-br from-zinc-800 to-black border border-white/10 p-8 rounded-[2.5rem] flex flex-col items-center justify-center cursor-pointer relative"
-          >
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="text-5xl mb-4">✨</motion.div>
-            <p className="text-sm font-bold text-gray-400 tracking-widest">{lang === 'en' ? 'CONNECT' : '联系我'}</p>
-            {showWeChat && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 bg-purple-600 flex flex-col items-center justify-center p-4 rounded-[2.5rem] z-20">
-                <MessageCircle size={40} className="mb-2" />
-                <p className="text-sm font-bold">WeChat ID: Annie524</p>
-                <p className="text-[10px] mt-6 opacity-60">Click to Close</p>
+
+            {/* 5. Social Contact Card */}
+            {lang === 'en' ? (
+              <motion.a
+                href="https://www.linkedin.com/in/yue-zheng-9ba80a292/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="md:col-span-4 bg-gradient-to-br from-zinc-800 to-black border border-white/10 p-8 rounded-[2.5rem] flex flex-col items-center justify-center cursor-pointer relative"
+              >
+                <div className="text-5xl mb-4">💼</div>
+                <p className="text-sm font-bold text-gray-400 tracking-widest">
+                  LINKEDIN
+                </p>
+                <p className="text-xs text-purple-400 mt-2">
+                  Connect with me
+                </p>
+              </motion.a>
+            ) : (
+              <motion.div
+                onClick={() => setShowWeChat(!showWeChat)}
+                whileHover={{ scale: 1.05 }}
+                className="md:col-span-4 bg-gradient-to-br from-zinc-800 to-black border border-white/10 p-8 rounded-[2.5rem] flex flex-col items-center justify-center cursor-pointer relative"
+              >
+                <div className="text-5xl mb-4">✨</div>
+                <p className="text-sm font-bold text-gray-400 tracking-widest">
+                  联系我
+                </p>
+                {showWeChat && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute inset-0 bg-purple-600 flex flex-col items-center justify-center p-4 rounded-[2.5rem] z-20"
+                  >
+                    <MessageCircle size={40} className="mb-2" />
+                    <p className="text-sm font-bold">WeChat ID: Annie524</p>
+                    <p className="text-[10px] mt-6 opacity-60">
+                      点击关闭
+                    </p>
+                  </motion.div>
+                )}
               </motion.div>
             )}
-          </motion.div>
+
 
           {/* 6. 联系信息卡片 (Email) */}
           <div className="md:col-span-8 bg-white/5 border border-white/10 p-8 rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-6">

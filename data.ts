@@ -24,6 +24,11 @@ export const content = {
         title: "Inclusive Design Insights from a Preliminary Image-Based Conversational Search Systems Evaluation",
         detail: "First Author | IR4U2@ECIR 24",
         link: "https://ceur-ws.org/Vol-3989/paper-08.pdf"
+      },
+      {
+        title: "Supporting Information-Need Expression with Icons and Text: An Exploratory Study with Adults with Learning Disabilities",
+        detail: "First Author | Proceedings of the 26th ACM/IEEE Joint Conference on Digital Libraries",
+        link: "https://dl.acm.org/doi/full/10.1145/3805696.3846026"
       }
     ],
     experienceList: [
@@ -71,8 +76,13 @@ export const content = {
       },
       {
         title: "基于图像对话搜索系统初步评估的包容性设计见解",
-        detail: "第一作者 | 发表至 ECIR 2024",
+        detail: "第一作者 | ECIR 2024",
         link: "https://ceur-ws.org/Vol-3989/paper-08.pdf"
+      },
+      {
+        title: "通过图标与文本支持信息需求表达：一项针对学习障碍成年人的探索性研究",
+        detail: "第一作者 | 第26届 ACM/IEEE 数字图书馆联合会议（JCDL 2026）",
+        link: "https://dl.acm.org/doi/full/10.1145/3805696.3846026"
       }
     ],
     experienceList: [
